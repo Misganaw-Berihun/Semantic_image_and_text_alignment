@@ -17,7 +17,7 @@ system_prompt = """
                       through the windows and prominent use of blue and yellow.
                       The output of the image has an aspect ratio of 1 : 1 and 
                       the image is used for social media post.'
-        This is the kind of image I want you to generate.
+        This is the kind of prompt I want you to generate.
 """
 
 response = client.chat.completions.create(
