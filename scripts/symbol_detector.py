@@ -31,12 +31,19 @@ class SymbolDetection:
         output = []
         for obj in objects:
             if (self.conf <= float(obj['conf'])):
+                width = int(obj['box'][2])
+                height = int(obj['box'][3])
+                x = int(obj['box'][0])
+                y = int(obj['box'][1])
+                normalized_x = x / width 
+                normalized_y = y / height
+
                 output.append( {
                     "Box": {
-                        "x": int(obj['box'][0]),
-                        "y": int(obj['box'][1]),
-                        "width": int(obj['box'][2]),
-                        "height": int(obj['box'][3])
+                        "x": normalized_x,
+                        "y": normalized_y,
+                        "width": width,
+                        "height": height
                     },
                     "conf": float(obj['conf']),
                     "label": self.model.names[int(obj['cls'])]
