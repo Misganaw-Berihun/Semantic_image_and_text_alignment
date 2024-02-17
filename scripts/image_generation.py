@@ -4,7 +4,7 @@ from typing import Literal,List,Tuple,Optional,Dict
 import base64
 from dotenv import load_dotenv
 from io import BytesIO
-
+import uuid
 import requests
 import replicate
 from PIL import Image
@@ -86,7 +86,8 @@ class ImageGenerator:
             
             if response.status_code == 200:
                 # Extract filename from URL
-                filename = os.path.basename(url)
+                #filename = os.path.basename(url)
+                filename = str(uuid.uuid4()) + '.png'
                 # Join save_path and filename to form complete path
                 complete_path = os.path.join(save_path, filename)
                 
