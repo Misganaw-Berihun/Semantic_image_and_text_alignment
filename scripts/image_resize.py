@@ -8,7 +8,7 @@ def get_image_dimensions(image_path: str) -> tuple:
 
     return width, height
 
-def resize_and_save_image(image_path: str, new_width: int, new_height: int, output_dir: str = '../images/resized_images') -> None:
+def resize_and_save_image(image_path: str, new_width: int, new_height: int, output_dir: str = '../images/resized') -> None:
    
     os.makedirs(output_dir, exist_ok=True)
     filename = os.path.basename(image_path)
